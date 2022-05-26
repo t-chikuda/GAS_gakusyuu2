@@ -48,10 +48,10 @@
       };
 
       // confirm用ダイアログの処理
-      var confirmMessage = document.getElementById('confirm-message-text');
-      var confirmDialog = document.getElementById('confirm-message');
-      var yesBtn = document.getElementById('confirm-yes');
-      var noBtn = document.getElementById('confirm-no');
+      const confirmMessage = document.getElementById('confirm-message-text');
+      const confirmDialog = document.getElementById('confirm-message');
+      const yesBtn = document.getElementById('confirm-yes');
+      const noBtn = document.getElementById('confirm-no');
 
       /**
        * 「はい」ボタンと「いいえ」ボタン付きのダイアログを表示する関数
@@ -64,7 +64,7 @@
           enableOverlayForDialog();
           confirmDialog.style.display = 'block';
           // ダイアログを閉じる処理
-          var closeConfirm = function() {
+          const closeConfirm = function() {
             yesBtn.removeEventListener('click', _yesfunc);
             noBtn.removeEventListener('click', _noFunc);
             disableOverlayForDialog();
@@ -72,13 +72,13 @@
             confirmMessage.innerText = '';
           }
           // はいボタンを作成する
-          var _yesfunc = function() {
+          const _yesfunc = function() {
             closeConfirm();
             resolve(resolveParam);
           };
           yesBtn.addEventListener('click', _yesfunc);
           // いいえボタンを作成する
-          var _noFunc = function() {
+          const _noFunc = function() {
             closeConfirm();
             reject();
           };
