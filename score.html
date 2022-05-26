@@ -136,16 +136,20 @@
           showAlert("0～10を入力してください");
           return;
         }
+        // 10フレーム以外
         // 1投目と2投目が10を超えないかのチェック
         if (numberOfFrames !== 10){
           if (document.getElementById(hiddenThrow1).value !== "" && document.getElementById(hiddenThrow2).value === "" && Number(document.getElementById(hiddenThrow1).value) + Number(document.getElementById("numberOfDefeated").value) >= 11){
             showAlert("10を超えています");
             return;
           }
+        // 10フレーム目
         } else if (numberOfFrames === 10) {
+          // 1投目と2投目が10を超えないかのチェック
           if (document.getElementById(displayThrow1).innerText !== "✕" && document.getElementById(hiddenThrow1).value !== "" && document.getElementById(hiddenThrow2).value === "" && Number(document.getElementById(hiddenThrow1).value) + Number(document.getElementById("numberOfDefeated").value) >= 11){
             showAlert("10を超えています");
             return;
+          // 2投目と3投目が10を超えないかのチェック
           } else if (document.getElementById(displayThrow2).innerText !== "／" && document.getElementById(displayThrow2).innerText !== "✕" && document.getElementById(hiddenThrow1).value !== "" && document.getElementById(hiddenThrow2).value !== "" && Number(document.getElementById(hiddenThrow2).value) + Number(document.getElementById("numberOfDefeated").value) >= 11){
             showAlert("10を超えています");
             return;
