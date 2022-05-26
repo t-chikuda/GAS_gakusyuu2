@@ -15,9 +15,7 @@
       function start() {
         google.script.run
         .withSuccessHandler(function(results) {
-            let url = results;
-            url += '?page=score';
-            window.top.location.href = url;
+            window.top.location.href = results + '?page=score';
         })
         .withFailureHandler(function(error) {
           showAlert('エラーが発生しました。システム管理者に問い合わせてください。');
