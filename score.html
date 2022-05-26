@@ -246,12 +246,11 @@
        * hiddenSum 合計非表示用のid
        */
       function inputSum(hiddenThrow1, hiddenThrow2, hiddenThrow3, lastHiddenSum, displaySum, hiddenSum) {
-        let sum;
-        if (hiddenThrow3 === 0) {
-          sum = Number(document.getElementById(hiddenThrow1).value) + Number(document.getElementById(hiddenThrow2).value) + Number(document.getElementById(lastHiddenSum).value);          
-        } else {
-          sum = Number(document.getElementById(hiddenThrow1).value) + Number(document.getElementById(hiddenThrow2).value) + Number(document.getElementById(hiddenThrow3).value) + Number(document.getElementById(lastHiddenSum).value);
-        }
+        let sum = Number(document.getElementById(hiddenThrow1).value) + 
+        Number(document.getElementById(hiddenThrow2).value)+ 
+        Number(document.getElementById(lastHiddenSum).value);
+        sum = hiddenThrow3 === 0 ? sum : sum  + Number(document.getElementById(hiddenThrow3).value);
+
         document.getElementById(displaySum).innerText = sum;
         document.getElementById(hiddenSum).value = sum;
       } 
@@ -265,12 +264,11 @@
         const lastDisplaySum = "displaySum" + Number(numberOfFrames - 1);
         const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
         const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
-        let sum;
-        if (numberOfFrames === 2) {
-          sum = Number(document.getElementById(hiddenThrow1).value)  + Number(document.getElementById(hiddenThrow2).value) + 10;
-        } else {
-          sum = Number(document.getElementById(hiddenThrow1).value)  + Number(document.getElementById(hiddenThrow2).value) + Number(document.getElementById(lastLastHiddenSum).value) + 10;
-        }
+
+        let sum = Number(document.getElementById(hiddenThrow1).value) + 
+        Number(document.getElementById(hiddenThrow2).value)+ 10;
+        sum = numberOfFrames === 2 ? sum : sum  + Number(document.getElementById(lastLastHiddenSum).value);
+
         document.getElementById(lastDisplaySum).innerText = sum;
         document.getElementById(lastHiddenSum).value = sum; 
       }
@@ -283,11 +281,10 @@
         const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
         const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
         const lastLastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 3);
-        let sum;
-        if (numberOfFrames === 3) {
-          sum = 30;
-        } else if (numberOfFrames >= 4 && document.getElementById(lastHiddenSum).value === "" && document.getElementById(lastLastHiddenSum).value === ""){
-          sum = Number(document.getElementById(lastLastLastHiddenSum).value) + 30;
+
+        let sum = 30;
+        if (numberOfFrames >= 4 && document.getElementById(lastHiddenSum).value === "" && document.getElementById(lastLastHiddenSum).value === ""){
+          sum = numberOfFrames === 3 ? sum : sum  + Number(document.getElementById(lastLastLastHiddenSum).value);
         }
         document.getElementById(lastLastDisplaySum).innerText = sum;
         document.getElementById(lastLastHiddenSum).value = sum;
@@ -314,12 +311,9 @@
         const lastDisplaySum = "displaySum" + Number(numberOfFrames - 1);
         const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
         const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
-        let sum;
-        if (numberOfFrames === 2) {
-          sum = Number(document.getElementById(hiddenThrow1).value)  + 10;
-        } else {
-          sum = Number(document.getElementById(hiddenThrow1).value)  + Number(document.getElementById(lastLastHiddenSum).value) + 10;
-        }
+
+        let sum = Number(document.getElementById(hiddenThrow1).value) + 10;
+        sum = numberOfFrames === 2 ? sum : sum  + Number(document.getElementById(lastLastHiddenSum).value);
         document.getElementById(lastDisplaySum).innerText = sum;
         document.getElementById(lastHiddenSum).value = sum; 
       }
