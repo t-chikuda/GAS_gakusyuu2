@@ -106,17 +106,17 @@
        */
       function input() {
         const strNumberOfFrames = String(numberOfFrames);
-        const displayThrow1 = "displayThrow" + strNumberOfFrames + "1";
-        const displayThrow2 = "displayThrow" + strNumberOfFrames + "2";
-        const displayThrow3 = "displayThrow" + strNumberOfFrames + "3";
-        const hiddenThrow1 = "hiddenThrow" + strNumberOfFrames + "1";
-        const hiddenThrow2 = "hiddenThrow" + strNumberOfFrames + "2";
-        const hiddenThrow3 = "hiddenThrow" + strNumberOfFrames + "3";
-        const lastDisplayThrow2 = "displayThrow" + Number(numberOfFrames - 1) + "2";
-        const displaySum = "displaySum" + strNumberOfFrames;
-        const hiddenSum = "hiddenSum" + strNumberOfFrames;
-        const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
-        const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
+        const displayThrow1 = `displayThrow${strNumberOfFrames}1`;
+        const displayThrow2 = `displayThrow${strNumberOfFrames}2`;
+        const displayThrow3 = `displayThrow${strNumberOfFrames}3`;
+        const hiddenThrow1 =  `hiddenThrow${strNumberOfFrames}1`;
+        const hiddenThrow2 = `hiddenThrow${strNumberOfFrames}2`;
+        const hiddenThrow3 = `hiddenThrow${strNumberOfFrames}3`;
+        const lastDisplayThrow2 = `displayThrow${numberOfFrames - 1}2`;
+        const displaySum = `displaySum${strNumberOfFrames}`;
+        const hiddenSum = `hiddenSum${strNumberOfFrames}`;
+        const lastHiddenSum = `hiddenSum${numberOfFrames - 1}`;
+        const lastLastHiddenSum = `hiddenSum${numberOfFrames - 2}`;
         const hiddenInput = document.getElementById("numberOfDefeated").value;
         let displayInput;
         let strikeFlag = false;
@@ -265,9 +265,9 @@
        * hiddenThrow2 2投目の本数
        */ 
       function lastInputSum1(hiddenThrow1, hiddenThrow2) {
-        const lastDisplaySum = "displaySum" + Number(numberOfFrames - 1);
-        const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
-        const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
+        const lastDisplaySum = `displaySum${numberOfFrames - 1}`;
+        const lastHiddenSum = `hiddenSum${numberOfFrames - 1}`;
+        const lastLastHiddenSum = `hiddenSum${numberOfFrames - 2}`;
 
         let sum = Number(document.getElementById(hiddenThrow1).value) + 
         Number(document.getElementById(hiddenThrow2).value)+ 10;
@@ -281,10 +281,10 @@
        * 連続ストライクの関数です
        */ 
       function lastInputSum2() {
-        const lastLastDisplaySum = "displaySum" + Number(numberOfFrames - 2);
-        const lastHiddenSum = "hiddenSum" + Number(numberOfFrames - 1);
-        const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
-        const lastLastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 3);
+        const lastLastDisplaySum = `displaySum${numberOfFrames - 2}`;
+        const lastHiddenSum = `hiddenSum${numberOfFrames - 1}`;
+        const lastLastHiddenSum = `hiddenSum${numberOfFrames - 2}`;
+        const lastLastLastHiddenSum = `hiddenSum${numberOfFrames - 3}`;
 
         let sum = 30;
         if (numberOfFrames >= 4 && document.getElementById(lastHiddenSum).value === "" && document.getElementById(lastLastHiddenSum).value === ""){
@@ -299,9 +299,9 @@
        * hiddenThrow1 1投目の本数
        */ 
       function lastInputSum3(hiddenThrow1) {
-        const lastLastDisplaySum = "displaySum" + Number(numberOfFrames - 2);
-        const lastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 2);
-        const lastLastLastHiddenSum = "hiddenSum" + Number(numberOfFrames - 3);
+        const lastLastDisplaySum = `displaySum${numberOfFrames - 2}`;
+        const lastLastHiddenSum = `hiddenSum${numberOfFrames - 2}`;
+        const lastLastLastHiddenSum = `hiddenSum${numberOfFrames - 3}`;
         const sum = Number(document.getElementById(lastLastLastHiddenSum).value) + Number(document.getElementById(hiddenThrow1).value) + 20;
         document.getElementById(lastLastDisplaySum).innerText = sum;
         document.getElementById(lastLastHiddenSum).value = sum;
